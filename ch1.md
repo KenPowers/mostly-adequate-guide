@@ -18,7 +18,8 @@ I won't belabor listing each and every guideline I've heard throughout the years
 
 Let's start with a touch of insanity. Here is a seagull application. When flocks conjoin they become a larger flock and when they breed they increase by the number of seagulls with whom they're breeding. Now this is not intended to be good Object-Oriented code, mind you, it is here to highlight the perils of our modern, assignment based approach. Behold:
 
-```js
+
+{ %tonic% }
 var Flock = function(n) {
   this.seagulls = n;
 };
@@ -40,7 +41,7 @@ var flock_c = new Flock(0);
 var result = flock_a.conjoin(flock_c)
     .breed(flock_b).conjoin(flock_a.breed(flock_b)).seagulls;
 //=> 32
-```
+{ %endtonic% }
 
 Who on earth would craft such a ghastly abomination? It is unreasonably difficult to keep track of the mutating internal state. And, good heavens, the answer is even incorrect! It should have been `16`, but `flock_a` wound up permanently altered in the process. Poor `flock_a`. This is anarchy in the I.T.! This is wild animal arithmetic!
 
